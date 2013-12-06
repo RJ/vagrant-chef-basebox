@@ -9,4 +9,4 @@ cookbook 'afw',             github: 'irccloud/afw',                 tag: 'master
 cookbook 'timezone-ii',     github: 'irccloud/timezone-ii',         tag: 'master'
 cookbook 'sysctl',          github: 'irccloud/sysctl-cookbook',     tag: 'master'
 
-#cookbook 'basebox', path: './basebox'
+cookbook 'basebox', path: './basebox'

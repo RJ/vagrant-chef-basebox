@@ -27,12 +27,12 @@ Vagrant.configure("2") do |config|
         echo "#{IP} #{HOSTNAME}" >> /etc/hosts
         apt-get update
 END
-        n.vm.synced_folder "cookbooks", "/home/vagrant/cookbooks"
+        #n.vm.synced_folder "cookbooks", "/home/vagrant/cookbooks"
         n.vm.synced_folder "application", "/home/vagrant/application"
     end
     config.vm.provision :chef_solo do |chef|
         # This path will be expanded relative to the project directory
-        chef.cookbooks_path = "cookbooks"
+        #chef.cookbooks_path = "cookbooks"
         chef.add_recipe("basebox")
         # chef.add_recipe("playdar")
     end
