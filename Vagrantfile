@@ -11,7 +11,7 @@ IP="10.1.2.3"
 Vagrant.configure("2") do |config|
     config.berkshelf.enabled = true
     config.berkshelf.berksfile_path = "cookbooks/Berksfile"
-    config.vm.define :playdar do |n|
+    config.vm.define :demobox do |n|
         n.omnibus.chef_version = :latest
         n.vm.box = BOXNAME
         n.vm.box_url = BOXURL
@@ -27,13 +27,10 @@ Vagrant.configure("2") do |config|
         echo "#{IP} #{HOSTNAME}" >> /etc/hosts
         apt-get update
 END
-        #n.vm.synced_folder "cookbooks", "/home/vagrant/cookbooks"
         n.vm.synced_folder "application", "/home/vagrant/application"
     end
     config.vm.provision :chef_solo do |chef|
         # This path will be expanded relative to the project directory
-        #chef.cookbooks_path = "cookbooks"
         chef.add_recipe("basebox")
-        # chef.add_recipe("playdar")
     end
 end
