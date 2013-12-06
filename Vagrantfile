@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
         end
         n.vm.provision :shell, :inline => <<END
         ## Just run once, first time box is deployed
-        grep "#{IP} #{HOSTNAME}" /etc/hosts && exit 0
+        grep "#{IP} #{HOSTNAME}" /etc/hosts > /dev/null && exit 0
         echo "#{IP} #{HOSTNAME}" >> /etc/hosts
         apt-get update
 END
