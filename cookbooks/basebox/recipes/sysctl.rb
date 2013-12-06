@@ -13,3 +13,9 @@ node.default[:sysctl][:attributes][:net][:ipv4][:tcp_wmem] = "4096 65536 1677721
 
 include_recipe "sysctl"
 
+chef_gem "chef-rewind"
+require 'chef/rewind'
+
+rewind "cookbook_file[/etc/sysctl.d/69-chef-static.conf]" do
+    cookbook "basebox"
+end
