@@ -9,4 +9,5 @@ installed.
 * Install vagrant, virtualbox, berkshelf
 * vagrant plugin install vagrant-omnibus
 * vagrant plugin install vagrant-berkshelf
+* vagrant plugin install vagrant-vbox-snapshot
 * vagrant up && vagrant provision
