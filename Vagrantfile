@@ -25,6 +25,8 @@ Vagrant.configure("2") do |config|
         ## Just run once, first time box is deployed
         grep "#{IP} #{HOSTNAME}" /etc/hosts > /dev/null && exit 0
         echo "#{IP} #{HOSTNAME}" >> /etc/hosts
+        # Modified skel wasn't modified in time for vagrant user:
+        echo -e "\nif [ -f /etc/bashrc_global ]; then\nsource /etc/bashrc_global\nfi\n" >> /home/vagrant/.bashrc
         apt-get update
 END
         n.vm.synced_folder "application", "/home/vagrant/application"
